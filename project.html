@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project | Kapil Thakur Portfolio</title>
+  <meta name="description" content="Project details — Kapil Thakur's AI/ML Developer Portfolio">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="main-nav" class="scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="bracket">{</span><span class="name">KT</span><span class="bracket">}</span>
+      </a>
+      <div id="nav-hamburger"><span></span><span></span><span></span></div>
+      <ul id="nav-links">
+        <li><a href="index.html#about" class="nav-link">about</a></li>
+        <li><a href="index.html#projects" class="nav-link">projects</a></li>
+        <li><a href="index.html#skills" class="nav-link">skills</a></li>
+        <li><a href="index.html#experience" class="nav-link">experience</a></li>
+        <li><a href="index.html#contact" class="nav-link">contact</a></li>
+        <li><a href="assets/Kapil_Thakur_Resume.pdf" class="nav-cta" target="_blank" rel="noopener">⬇ Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PROJECT HERO -->
+  <div class="project-hero">
+    <div class="container">
+      <div class="project-hero-content">
+        <a href="index.html#projects" class="project-back-link">← Back to All Projects</a>
+        <div id="project-badge" class="project-category-badge"></div>
+        <h1 id="project-title" class="project-detail-title"></h1>
+        <p id="project-tagline" class="project-detail-tagline"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT BODY -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+        <div class="project-main" id="project-content"></div>
+        <aside class="project-sidebar" id="project-sidebar"></aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREV / NEXT -->
+  <div class="project-nav">
+    <div class="container">
+      <div class="project-nav-grid" id="project-nav-links"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-status"><span class="status-dot"></span><span>System Online</span></div>
+        <span>© 2026 Kapil Thakur. Engineered with ⚡</span>
+        <div class="footer-links">
+          <a href="https://github.com/Mr-K2901" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/kapilthakur" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/github-data.js"></script>
+  <script>
+    /* =============================================
+       PROJECT DETAIL — Hybrid Data Source
+       Reads curated data from PROJECTS (data.js)
+       Merges live GitHub stats from GITHUB_REPOS
+       ============================================= */
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get('id');
+
+      if (!projectId) { window.location.href = 'index.html#projects'; return; }
+
+      // Find in curated PROJECTS
+      const project = PROJECTS.find(p => p.id === projectId);
+      if (!project) { window.location.href = 'index.html#projects'; return; }
+
+      // Find matching GitHub repo (for live stats)
+      const ghRepo = project.githubRepo && typeof GITHUB_REPOS !== 'undefined'
+        ? GITHUB_REPOS.find(r => r.name === project.githubRepo)
+        : null;
+
+      // --- Page Meta ---
+      document.title = `${project.title} | Kapil Thakur Portfolio`;
+      document.querySelector('meta[name="description"]').content = project.shortDescription;
+
+      // --- Hero ---
+      const badge = document.getElementById('project-badge');
+      badge.textContent = project.categoryLabel;
+      badge.style.color = project.accent;
+      badge.style.borderColor = project.accent;
+      badge.style.background = project.accent + '12';
+      document.getElementById('project-title').textContent = project.title;
+      document.getElementById('project-tagline').textContent = project.tagline;
+
+      // --- Main Content ---
+      const mainContent = document.getElementById('project-content');
+      const descParagraphs = project.fullDescription
+        .split('\n\n').filter(p => p.trim())
+        .map(p => `<p>${p.trim()}</p>`).join('');
+
+      mainContent.innerHTML = `
+                <div class="project-section">
+                    <h2>Overview</h2>
+                    ${descParagraphs}
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        ${project.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Architecture</h2>
+                    <div class="architecture-block">
+                        ${project.architecture.split('→').map((step, i, arr) =>
+        `<span style="color: var(--cyan)">${step.trim()}</span>${i < arr.length - 1 ? ' <span style="color: var(--purple)">→</span> ' : ''}`
+      ).join('')}
+                    </div>
+                </div>
+
+                ${project.challenges ? `
+                <div class="project-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>${project.challenges}</p>
+                </div>` : ''}
+            `;
+
+      // --- Sidebar ---
+      const sidebar = document.getElementById('project-sidebar');
+
+      // Tech stack tags
+      const techTags = project.techStack.map(tech =>
+        `<span class="sidebar-tag">${tech}</span>`
+      ).join('');
+
+      // GitHub language bar (if available)
+      const langBarHtml = ghRepo?.languageBreakdown?.length > 0
+        ? `<div class="sidebar-card">
+                    <h3>Languages</h3>
+                    <div class="sidebar-tags">
+                        ${ghRepo.languageBreakdown.filter(l => l.percentage > 0).map(l =>
+          `<span class="sidebar-tag" style="border-color: ${l.color}40; color: ${l.color}">
+                                <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${l.color};margin-right:4px"></span>
+                                ${l.name} ${l.percentage}%
+                            </span>`
+        ).join('')}
+                    </div>
+                    <div class="repo-lang-bar" style="margin-top: 12px;">
+                        ${ghRepo.languageBreakdown.map(l =>
+          `<div class="repo-lang-segment" style="width:${l.percentage}%;background:${l.color}" title="${l.name}"></div>`
+        ).join('')}
+                    </div>
+                   </div>` : '';
+
+      // GitHub stats (if available)
+      const ghStatsHtml = ghRepo ? `
+                <div class="sidebar-card">
+                    <h3>GitHub Stats</h3>
+                    <div class="sidebar-stats">
+                        <div class="sidebar-stat-item">⭐ <strong>${ghRepo.stars}</strong> Stars</div>
+                        <div class="sidebar-stat-item">🍴 <strong>${ghRepo.forks}</strong> Forks</div>
+                        <div class="sidebar-stat-item">👁️ <strong>${ghRepo.watchers}</strong> Watchers</div>
+                        <div class="sidebar-stat-item">${ghRepo.isPrivate ? '🔒 Private' : '🌐 Public'} Repository</div>
+                        <div class="sidebar-stat-item">📅 Created ${new Date(ghRepo.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}</div>
+                        <div class="sidebar-stat-item">🔄 Updated ${new Date(ghRepo.pushedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+                    </div>
+                </div>
+            ` : '';
+
+      // Links
+      const githubLink = ghRepo && !ghRepo.isPrivate
+        ? `<a href="${ghRepo.url}" class="sidebar-link" target="_blank" rel="noopener">🐙 GitHub Repository</a>`
+        : ghRepo?.isPrivate
+          ? `<span class="sidebar-link" style="opacity: 0.5; cursor: default;">🔒 Private Repository</span>`
+          : `<span class="sidebar-link" style="opacity: 0.5; cursor: default;">💻 Local Project</span>`;
+
+      const homepageLink = ghRepo?.homepage
+        ? `<a href="${ghRepo.homepage}" class="sidebar-link" target="_blank" rel="noopener">🚀 Live Demo</a>` : '';
+
+      sidebar.innerHTML = `
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">${techTags}</div>
+                </div>
+                ${langBarHtml}
+                ${ghStatsHtml}
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        ${githubLink}
+                        ${homepageLink}
+                    </div>
+                </div>
+            `;
+
+      // --- Prev/Next Navigation ---
+      const currentIndex = PROJECTS.findIndex(p => p.id === projectId);
+      const prev = currentIndex > 0 ? PROJECTS[currentIndex - 1] : PROJECTS[PROJECTS.length - 1];
+      const next = currentIndex < PROJECTS.length - 1 ? PROJECTS[currentIndex + 1] : PROJECTS[0];
+
+      document.getElementById('project-nav-links').innerHTML = `
+                <a href="project.html?id=${prev.id}" class="project-nav-link">
+                    <div class="project-nav-label">← Previous</div>
+                    <div class="project-nav-title">${prev.title}</div>
+                </a>
+                <a href="project.html?id=${next.id}" class="project-nav-link" style="text-align: right;">
+                    <div class="project-nav-label">Next →</div>
+                    <div class="project-nav-title">${next.title}</div>
+                </a>
+            `;
+
+      // --- Hamburger ---
+      const hamburger = document.getElementById('nav-hamburger');
+      const navLinksEl = document.getElementById('nav-links');
+      if (hamburger) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinksEl.classList.toggle('open');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

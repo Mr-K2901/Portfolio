@@ -1,0 +1,170 @@
+{
+  "username": "Mr-K2901",
+  "include_private": true,
+  "include_forks": false,
+  "include_archived": false,
+  "exclude": [
+    "SAM_3"
+  ],
+  "sort_by": "updated",
+  "sort_order": "desc",
+  "language_colors": {
+    "Python": "#3572A5",
+    "JavaScript": "#f1e05a",
+    "TypeScript": "#3178c6",
+    "HTML": "#e34c26",
+    "CSS": "#563d7c",
+    "Jupyter Notebook": "#DA5B0B",
+    "Dart": "#00B4AB",
+    "C++": "#f34b7d",
+    "C": "#555555",
+    "Shell": "#89e051",
+    "Java": "#b07219",
+    "Dockerfile": "#384d54"
+  },
+  "category_map": {
+    "Python": "ml",
+    "Jupyter Notebook": "ml",
+    "JavaScript": "fullstack",
+    "TypeScript": "fullstack",
+    "HTML": "fullstack",
+    "CSS": "fullstack",
+    "Dart": "mobile",
+    "C++": "iot",
+    "C": "iot",
+    "Shell": "devops"
+  },
+  "overrides": {
+    "FaceRecognitionX": {
+      "category": "cv"
+    },
+    "TnP_Portal": {
+      "category": "fullstack"
+    },
+    "ML": {
+      "display_name": "ML Playground",
+      "description": "Machine learning demos covering regression and classification algorithms with interactive Jupyter notebooks.",
+      "category": "ml"
+    },
+    "blood-donation-camp": {
+      "display_name": "Blood Donation Camp",
+      "category": "fullstack"
+    },
+    "ReviewEmote-CSV-Sentiment-Visualizer": {
+      "display_name": "ReviewEmote",
+      "category": "nlp"
+    },
+    "Voice_Bot": {
+      "display_name": "PreciseCall Voice Bot",
+      "category": "nlp"
+    },
+    "IOT-based-face-detection-and-recognition-using-ESP-32": {
+      "display_name": "IoT Vision System",
+      "category": "iot"
+    },
+    "Codsoft": {
+      "display_name": "CodSoft Internship",
+      "description": "Python projects developed during CodSoft internship — covering core ML concepts and practical implementations.",
+      "category": "ml"
+    }
+  },
+  "featured": {
+    "Voice_Bot": {
+      "tagline": "AI-Powered Conversational Recruiter",
+      "accent": "#ff6b6b",
+      "categoryLabel": "NLP / Voice AI",
+      "fullDescription": "PreciseCall is a production-ready AI voice bot designed to streamline the recruiting and hiring process. It handles phone conversations using speech-to-text, natural language understanding, and text-to-speech to create a seamless conversational experience.\n\nThe system integrates with Twilio for telephony, uses a FastAPI backend for real-time processing, and features a React frontend dashboard for monitoring active calls and managing conversation flows. Built with WebSocket connections for low-latency real-time updates.",
+      "features": [
+        "Real-time speech-to-text transcription",
+        "NLP-powered intent recognition & response generation",
+        "Natural text-to-speech voice synthesis",
+        "Twilio WhatsApp & voice call integration",
+        "React dashboard for call monitoring",
+        "WebSocket-based real-time updates",
+        "Docker containerized deployment"
+      ],
+      "architecture": "Phone Call → Twilio → FastAPI WebSocket → STT → NLP Engine → Response Generator → TTS → Caller",
+      "challenges": "Achieving low-latency responses in voice conversations — the bot needs to respond within 1-2 seconds to feel natural, requiring optimized NLP inference and audio streaming pipelines."
+    },
+    "FaceRecognitionX": {
+      "tagline": "Real-Time Identity Verification System",
+      "accent": "#ffd93d",
+      "categoryLabel": "Computer Vision",
+      "fullDescription": "A deep learning-based face recognition system using MTCNN for detection and InsightFace for high-accuracy identity matching. The pipeline handles the complete workflow: face detection → alignment → embedding generation → similarity matching against a known identity database.\n\nBuilt to work reliably across varying lighting conditions, angles, and partial occlusions. Features both real-time webcam recognition and batch processing modes.",
+      "features": [
+        "Multi-face detection with MTCNN",
+        "ArcFace embedding generation via InsightFace",
+        "Real-time webcam-based recognition",
+        "Known/Unknown classification with configurable thresholds",
+        "Batch processing for database enrollment",
+        "Performance logging and accuracy metrics"
+      ],
+      "architecture": "Camera Feed → MTCNN Detector → Face Alignment → InsightFace Embeddings → Cosine Similarity → Identity Database → Result",
+      "challenges": "Balancing false positive and false negative rates — choosing the right similarity threshold is critical and varies depending on the deployment environment and lighting conditions."
+    },
+    "TnP_Portal": {
+      "tagline": "Campus Recruitment Management Platform",
+      "accent": "#a855f7",
+      "categoryLabel": "Full Stack",
+      "fullDescription": "A comprehensive campus recruitment management system built for Training & Placement cells. The portal digitizes the entire placement workflow — from student registration and resume management to company onboarding and interview scheduling.\n\nFeatures role-based access control (students, TPO admins, companies), database migrations with Alembic for reliable schema evolution, and a clean, responsive interface.",
+      "features": [
+        "Student profile & resume management",
+        "Company registration and job posting",
+        "Placement drive scheduling and management",
+        "Role-based access control (Student/Admin/Company)",
+        "Database migrations with Alembic",
+        "RESTful API architecture"
+      ],
+      "architecture": "Frontend → FastAPI Backend → PostgreSQL (Alembic Migrations) → Docker",
+      "challenges": "Designing a system flexible enough to handle different placement processes across departments while maintaining a consistent, intuitive user experience."
+    },
+    "IOT-based-face-detection-and-recognition-using-ESP-32": {
+      "tagline": "Edge AI for Industrial Inspection",
+      "accent": "#4ecdc4",
+      "categoryLabel": "IoT / Edge AI",
+      "fullDescription": "A robust, fault-tolerant wireless computer vision system using ESP32-CAM and Python OpenCV. The system captures real-time video from ESP32-CAM modules, processes frames using a Producer-Consumer pattern, and performs face detection and recognition at the edge.\n\nDesigned for industrial inspection scenarios with features like active frame dropping for real-time performance, auto-reconnection on network failures, and a data-fusion logging engine for comprehensive audit trails.",
+      "features": [
+        "ESP32-CAM firmware with optimized streaming",
+        "Fault-tolerant auto-reconnection mechanism",
+        "Active frame dropping for real-time performance",
+        "Producer-Consumer pattern for video processing",
+        "Data-fusion logging engine for inspection records",
+        "Streamlit dashboard for monitoring"
+      ],
+      "architecture": "ESP32-CAM → WiFi Stream → Python VideoStream (Producer) → Frame Queue → Detector (Consumer) → Logger → Dashboard",
+      "challenges": "Maintaining stable, low-latency video streams over WiFi from ESP32-CAM modules while running real-time face recognition — all within the memory and bandwidth constraints of edge hardware."
+    },
+    "ReviewEmote-CSV-Sentiment-Visualizer": {
+      "tagline": "DistilBERT-Powered Sentiment Analyzer",
+      "accent": "#00f0ff",
+      "categoryLabel": "NLP / ML",
+      "fullDescription": "ReviewEmote is a zero-setup Streamlit application that brings production-grade sentiment analysis to non-technical users. Upload a CSV of customer reviews, and the app automatically processes each entry through a DistilBERT transformer model.\n\nFeatures intelligent text chunking for long reviews, a 1-10 emoji rating system for intuitive visualization, real-time progress tracking, and interactive Plotly charts for exploring sentiment distributions and trends.",
+      "features": [
+        "DistilBERT transformer-based sentiment classification",
+        "Smart text chunking for long-form reviews",
+        "1-10 emoji rating scale visualization",
+        "Real-time progress tracking with ETA",
+        "Interactive Plotly charts and distributions",
+        "Zero-setup CSV upload interface"
+      ],
+      "architecture": "CSV Upload → Text Chunking → DistilBERT Inference → Score Aggregation → Emoji Mapping → Plotly Visualization",
+      "challenges": "Handling extremely long reviews that exceed the model's token limit — implemented intelligent text chunking that splits reviews into overlapping segments and aggregates predictions for accurate composite scores."
+    },
+    "blood-donation-camp": {
+      "tagline": "Donor Registration & Management Portal",
+      "accent": "#ec4899",
+      "categoryLabel": "Web App",
+      "fullDescription": "A web application designed for organizing and managing blood donation camp registrations. The system handles donor registration, blood type tracking, and camp event management with a clean, accessible interface.\n\nBuilt with vanilla HTML and JavaScript for maximum compatibility and easy deployment — can be hosted on GitHub Pages with zero configuration.",
+      "features": [
+        "Donor registration and data collection",
+        "Blood type categorization and tracking",
+        "Camp event scheduling and management",
+        "Responsive design for mobile registration",
+        "GitHub Pages deployment ready",
+        "No server dependencies — fully client-side"
+      ],
+      "architecture": "HTML Frontend → JavaScript Logic → Local Storage / Static Hosting",
+      "challenges": "Designing an intuitive registration flow that works smoothly on mobile devices at actual blood donation camps where network connectivity may be limited."
+    }
+  }
+}

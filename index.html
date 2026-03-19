@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapil Thakur | AI/ML Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Kapil Thakur — AI/ML Developer specializing in NLP, Computer Vision, IoT edge systems, and full-stack intelligent applications.">
+  <meta name="keywords"
+    content="AI, ML, Machine Learning, NLP, Computer Vision, Portfolio, Developer, Python, Deep Learning">
+  <meta name="author" content="Kapil Thakur">
+  <meta property="og:title" content="Kapil Thakur | AI/ML Developer Portfolio">
+  <meta property="og:description" content="Building Intelligent Systems — From Neural Networks to IoT Edge Devices">
+  <meta property="og:type" content="website">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav id="main-nav">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="bracket">{</span>
+        <span class="name">KT</span>
+        <span class="bracket">}</span>
+      </a>
+      <div id="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <ul id="nav-links">
+        <li><a href="#about" class="nav-link">about</a></li>
+        <li><a href="#projects" class="nav-link">projects</a></li>
+        <li><a href="#skills" class="nav-link">skills</a></li>
+        <li><a href="#experience" class="nav-link">experience</a></li>
+        <li><a href="#contact" class="nav-link">contact</a></li>
+        <li><a href="assets/Kapil_Thakur_Resume.pdf" class="nav-cta" target="_blank" rel="noopener">⬇ Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting mono">// welcome to my portfolio</p>
+      <h1 class="hero-name">Hi, I'm <span class="gradient-text">Kapil Thakur</span></h1>
+      <p class="hero-title">AI / ML Developer & Engineer</p>
+      <p class="hero-tagline"><span id="typewriter-text"></span></p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary"><span>⚡</span> View Projects</a>
+        <a href="assets/Kapil_Thakur_Resume.pdf" class="btn-secondary" target="_blank" rel="noopener"><span>📄</span>
+          Download CV</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-mouse"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT SECTION
+       ============================================ -->
+  <section id="about">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">System Profile</h2>
+      </div>
+      <div class="about-grid">
+        <div class="animate-on-scroll" style="--delay: 0.1s">
+          <p class="about-bio">
+            Passionate AI/ML developer specializing in building end-to-end intelligent systems.
+            From crafting NLP pipelines and computer vision solutions to deploying models on IoT edge
+            devices, I bridge the gap between cutting-edge research and real-world applications.
+          </p>
+          <p class="about-bio">
+            I believe in practical, scalable solutions — engineering that works. Whether it's a
+            research paper summarizer running on Airflow, a face recognition system on an ESP32-CAM,
+            or a voice bot handling live phone calls — I build things that solve real problems.
+          </p>
+        </div>
+        <div class="about-yaml animate-on-scroll" style="--delay: 0.2s">
+          <div class="yaml-content">
+            <div><span class="yaml-comment"># developer_profile.yaml</span></div>
+            <div>&nbsp;</div>
+            <div><span class="yaml-key">name:</span> <span class="yaml-string">"Kapil Thakur"</span></div>
+            <div><span class="yaml-key">role:</span> <span class="yaml-string">"AI/ML Developer"</span></div>
+            <div><span class="yaml-key">specialization:</span></div>
+            <div>&nbsp;&nbsp;<span class="yaml-bracket">-</span> <span class="yaml-value">NLP & Language Models</span>
+            </div>
+            <div>&nbsp;&nbsp;<span class="yaml-bracket">-</span> <span class="yaml-value">Computer Vision</span></div>
+            <div>&nbsp;&nbsp;<span class="yaml-bracket">-</span> <span class="yaml-value">IoT & Edge AI</span></div>
+            <div>&nbsp;&nbsp;<span class="yaml-bracket">-</span> <span class="yaml-value">Deep Learning</span></div>
+            <div><span class="yaml-key">location:</span> <span class="yaml-value">India</span></div>
+            <div><span class="yaml-key">status:</span> <span class="yaml-string">"Open to Opportunities"</span></div>
+            <div>&nbsp;</div>
+            <div><span class="yaml-comment"># Let's build something amazing ✨</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROJECTS SECTION (Unified — GitHub Powered)
+       ============================================ -->
+  <section id="projects">
+    <div class="container">
+      <div class="animate-on-scroll" style="text-align: center;">
+        <span class="section-label">Work</span>
+        <h2 class="section-title">Projects & Repositories</h2>
+        <p class="section-subtitle" style="margin: 0 auto 16px;">
+          Real projects, real code — powered live from my GitHub.
+        </p>
+        <div id="github-stats" class="github-stats-bar"></div>
+      </div>
+
+      <!-- Category filter (dynamically populated) -->
+      <div class="projects-filter animate-on-scroll" style="--delay: 0.1s" id="projects-filter">
+        <button class="filter-btn active" data-category="all">⚡ All</button>
+      </div>
+
+      <!-- Featured projects: big 3D cards -->
+      <div id="featured-grid" class="featured-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Divider -->
+      <div id="other-divider" class="projects-divider animate-on-scroll" style="display: none;">
+        <span class="divider-line"></span>
+        <span class="divider-text mono">More Work</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- Other repos: compact cards -->
+      <div id="repos-grid" class="repos-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- GitHub profile link -->
+      <div class="animate-on-scroll" style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/Mr-K2901" class="btn-secondary" target="_blank" rel="noopener">
+          🐙 View Full GitHub Profile
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SKILLS SECTION — HEX GRID
+       ============================================ -->
+  <section id="skills">
+    <div class="container">
+      <div class="animate-on-scroll" style="text-align: center;">
+        <span class="section-label">Expertise</span>
+        <h2 class="section-title">Tech Arsenal</h2>
+        <p class="section-subtitle" style="margin: 0 auto 50px;">
+          Tools and technologies I use to build intelligent systems.
+        </p>
+      </div>
+      <div id="skills-hex-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       EXPERIENCE / TIMELINE
+       ============================================ -->
+  <section id="experience">
+    <div class="container">
+      <div class="animate-on-scroll" style="text-align: center;">
+        <span class="section-label">Journey</span>
+        <h2 class="section-title">Commit History</h2>
+        <p class="section-subtitle" style="margin: 0 auto 50px;">
+          My professional timeline — from learning to building.
+        </p>
+      </div>
+      <div id="timeline-container"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTACT SECTION
+       ============================================ -->
+  <section id="contact">
+    <div class="container">
+      <div class="animate-on-scroll" style="text-align: center;">
+        <span class="section-label">Connect</span>
+        <h2 class="section-title">Establish Connection</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info animate-on-scroll" style="--delay: 0.1s">
+          <h3>Let's Build Something Together</h3>
+          <p>Got a project idea? Looking for an AI/ML collaborator? Or just want to talk about neural networks over
+            coffee? I'm always open to interesting conversations and opportunities.</p>
+          <div class="contact-socials">
+            <a href="https://github.com/Mr-K2901" class="social-link" target="_blank" rel="noopener"
+              title="GitHub">🐙</a>
+            <a href="https://linkedin.com/in/kapilthakur" class="social-link" target="_blank" rel="noopener"
+              title="LinkedIn">💼</a>
+            <a href="mailto:kapil@example.com" class="social-link" title="Email">✉️</a>
+            <a href="https://twitter.com/kapilthakur" class="social-link" target="_blank" rel="noopener"
+              title="Twitter">🐦</a>
+          </div>
+        </div>
+        <div class="contact-form-wrapper animate-on-scroll" style="--delay: 0.2s">
+          <div class="form-titlebar">
+            <div class="form-dot red"></div>
+            <div class="form-dot yellow"></div>
+            <div class="form-dot green"></div>
+            <span>~/contact/new_message.sh</span>
+          </div>
+          <form id="contact-form">
+            <div class="form-group">
+              <label class="form-label"><span class="prompt">$</span> enter_name:</label>
+              <input type="text" class="form-input" placeholder="Your Name" required id="contact-name">
+            </div>
+            <div class="form-group">
+              <label class="form-label"><span class="prompt">$</span> enter_email:</label>
+              <input type="email" class="form-input" placeholder="you@example.com" required id="contact-email">
+            </div>
+            <div class="form-group">
+              <label class="form-label"><span class="prompt">$</span> enter_message:</label>
+              <textarea class="form-textarea" placeholder="Your message..." required id="contact-message"></textarea>
+            </div>
+            <button type="submit" class="submit-btn"><span class="btn-text">▸ TRANSMIT</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-status"><span class="status-dot"></span><span>System Online</span></div>
+        <span>© 2026 Kapil Thakur. Engineered with ⚡</span>
+        <div class="footer-links">
+          <a href="https://github.com/Mr-K2901" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/kapilthakur" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       SCRIPTS
+       ============================================ -->
+  <script src="js/data.js"></script>
+  <script src="js/github-data.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
