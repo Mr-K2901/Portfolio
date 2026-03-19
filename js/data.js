@@ -266,24 +266,24 @@ const SKILLS = [
 
 const EXPERIENCE = [
   {
-    date: "2025 — Present",
+    date: "2024 — Present",
     role: "AI/ML Developer",
     company: "Freelance / Independent",
     description: "Building end-to-end AI solutions — NLP pipelines, computer vision systems, and IoT edge deployments. Working with startups and research teams to bring ML models from prototype to production.",
     tags: ["Python", "PyTorch", "FastAPI", "Docker"]
   },
   {
-    date: "2024 — 2025",
-    role: "ML Engineering Intern",
-    company: "Tech Company",
-    description: "Developed and deployed machine learning models for production workloads. Built data pipelines, trained NLP models, and optimized inference latency for real-time applications.",
-    tags: ["TensorFlow", "Airflow", "AWS", "PostgreSQL"]
+    date: "Aug 2024 — Jul 2026",
+    role: "MSc in Data Science",
+    company: "Savitribai Phule Pune University, Pune",
+    description: "Department of Technology — specializing in advanced machine learning, deep learning, NLP, and statistical modeling. Building production-grade AI systems as capstone projects. CGPA: 8.59 (Pursuing).",
+    tags: ["Deep Learning", "NLP", "Statistics", "Data Engineering"]
   },
   {
-    date: "2021 — 2025",
-    role: "B.Tech in Computer Science",
-    company: "University",
-    description: "Focused on AI/ML, computer science fundamentals, and hands-on project development. Led technical teams and participated in hackathons and research projects.",
-    tags: ["Algorithms", "ML", "Research", "Leadership"]
+    date: "Aug 2021 — May 2024",
+    role: "BSc in Computer Science",
+    company: "Indira College of Commerce & Science, Wakad, Pune",
+    description: "Strong foundation in programming, data structures, algorithms, database management, and software engineering. Actively built projects and participated in technical events. CGPA: 8.59.",
+    tags: ["Algorithms", "DBMS", "OOP", "Python"]
   }
 ];
