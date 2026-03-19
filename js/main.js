@@ -419,6 +419,107 @@ function renderTimeline() {
 
 
 /* =====================
+   SKILLS HEX GRID
+   ===================== */
+function renderSkillsGrid() {
+    const grid = document.getElementById('skills-hex-grid');
+    if (!grid || typeof SKILLS === 'undefined') return;
+
+    const categoryColors = {
+        language: '#00f0ff',
+        ml: '#b026ff',
+        backend: '#4ecdc4',
+        frontend: '#ffd93d',
+        data: '#f97316',
+        devops: '#a855f7',
+        cloud: '#00f0ff',
+        mobile: '#ec4899'
+    };
+
+    // Build rows: alternating 5 and 4
+    const rows = [];
+    let idx = 0;
+    let rowIdx = 0;
+    while (idx < SKILLS.length) {
+        const count = rowIdx % 2 === 0 ? 5 : 4;
+        rows.push(SKILLS.slice(idx, idx + count));
+        idx += count;
+        rowIdx++;
+    }
+
+    grid.innerHTML = rows.map((row, ri) => {
+        const offset = ri % 2 !== 0 ? ' offset' : '';
+        const items = row.map((skill, ci) => {
+            const color = categoryColors[skill.category] || '#00f0ff';
+            const delay = ((ri * 5 + ci) * 0.06).toFixed(2);
+            return `
+            <div class="hex-item animate-on-scroll" style="--delay: ${delay}s; position: relative;">
+                <div class="hex-shape">
+                    <div class="hex-inner">
+                        <div class="hex-icon"><span>${skill.icon}</span></div>
+                        <span class="hex-name">${skill.name}</span>
+                        <div class="hex-bar">
+                            <div class="hex-bar-fill" style="width: 0%; background: ${color};" data-width="${skill.proficiency}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+        return `<div class="hex-row${offset}">${items}</div>`;
+    }).join('');
+
+    // Animate bars on scroll
+    const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target.querySelector('.hex-bar-fill');
+                if (bar) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            bar.style.width = bar.getAttribute('data-width') + '%';
+                            bar.classList.add('animate');
+                        });
+                    });
+                }
+                barObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    grid.querySelectorAll('.hex-item').forEach(el => barObserver.observe(el));
+    observeNewElements();
+}
+
+
+/* =====================
+   EXPERIENCE TIMELINE
+   ===================== */
+function renderTimeline() {
+    const container = document.getElementById('timeline-container');
+    if (!container || typeof EXPERIENCE === 'undefined') return;
+
+    container.innerHTML = EXPERIENCE.map((exp, i) => `
+        <div class="timeline-item animate-on-scroll" style="--delay: ${(i * 0.15).toFixed(2)}s">
+            <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+                <span class="timeline-date"><span class="terminal-prompt">$</span> ${exp.date}</span>
+                <h3 class="timeline-role">${exp.role}</h3>
+                <p class="timeline-company">${exp.company}</p>
+                <p class="timeline-description">${exp.description}</p>
+                <div class="timeline-tags">
+                    ${exp.tags.map(t => `<span class="timeline-tag">${t}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    observeNewElements();
+}
+
+
+/* =====================
    CONTACT FORM
    ===================== */
 function initContactForm() {

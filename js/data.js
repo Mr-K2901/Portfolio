@@ -20,12 +20,11 @@ const PROFILE = {
     status: "Open to Opportunities"
   },
   socials: {
-    github: "https://github.com/kapilthakur",
-    linkedin: "https://linkedin.com/in/kapilthakur",
-    email: "mailto:kapil@example.com",
-    twitter: "https://twitter.com/kapilthakur"
+    github: "https://github.com/Mr-K2901",
+    linkedin: "www.linkedin.com/in/kapil-thakur-96713a270",  // TODO: Update with real LinkedIn URL
+    email: "mailto:kapilthakur29.01@gmail.com",                 // TODO: Update with real email
   },
-  resumeUrl: "assets/Kapil_Thakur_Resume.pdf"
+  resumeUrl: "assets/Kapil_Thakur_Resume.pdf"          // TODO: Add resume PDF to assets/ folder
 };
 
 
