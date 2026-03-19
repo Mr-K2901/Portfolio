@@ -266,24 +266,24 @@ const SKILLS = [
 
 const EXPERIENCE = [
   {
-    date: "2024 — Present",
-    role: "AI/ML Developer",
-    company: "Freelance / Independent",
-    description: "Building end-to-end AI solutions — NLP pipelines, computer vision systems, and IoT edge deployments. Working with startups and research teams to bring ML models from prototype to production.",
-    tags: ["Python", "PyTorch", "FastAPI", "Docker"]
+    date: "2025 — Present",
+    role: "Aspiring AI/ML Developer",
+    company: "Freelance",
+    description: "Building end-to-end AI solutions — NLP, Computer Vision, Voice-based applications, and IoT integrations. Willing to collaborate with startups and research teams to deploy models into production environments.",
+    tags: ["Python", "Transformers", "Voice-AI", "Cloud"]
   },
   {
-    date: "Aug 2024 — Jul 2026",
+    date: "Aug 2024 — July 2026",
     role: "MSc in Data Science",
     company: "Savitribai Phule Pune University, Pune",
-    description: "Department of Technology — specializing in advanced machine learning, deep learning, NLP, and statistical modeling. Building production-grade AI systems as capstone projects. CGPA: 8.59 (Pursuing).",
-    tags: ["Deep Learning", "NLP", "Statistics", "Data Engineering"]
+    description: "Department of Technology. Specializing in advanced machine learning, deep neural networks, and research-led AI development. Current CGPA: 8.59 (Pursuing).",
+    tags: ["MSc DS", "Deep Learning", "Pytorch", "Research"]
   },
   {
     date: "Aug 2021 — May 2024",
     role: "BSc in Computer Science",
-    company: "Indira College of Commerce & Science, Wakad, Pune",
-    description: "Strong foundation in programming, data structures, algorithms, database management, and software engineering. Actively built projects and participated in technical events. CGPA: 8.59.",
-    tags: ["Algorithms", "DBMS", "OOP", "Python"]
+    company: "Indira College of Commerce and Science, Pune",
+    description: "Bachelor of Science in Computer Science with a focus on core programming principles, logic building, and technical systems. Graduated with CGPA: 8.59.",
+    tags: ["BSc CS", "C++", "Python", "Data Structures"]
   }
 ];
